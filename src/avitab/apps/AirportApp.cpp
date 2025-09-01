@@ -63,7 +63,7 @@ void AirportApp::resetLayout() {
         });
     });
     keys->setDimensions(searchWindow->getContentWidth(), keys->getHeight());
-    keys->setPosition(0, searchWindow->getContentHeight() - keys->getHeight());
+//    keys->setPosition(0, searchWindow->getContentHeight() - keys->getHeight());
 }
 
 void AirportApp::onSearchEntered(const std::string& code) {

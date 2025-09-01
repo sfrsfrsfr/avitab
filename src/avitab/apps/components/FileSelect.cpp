@@ -31,7 +31,7 @@ FileSelect::FileSelect(FuncsPtr appFuncs):
     window->addSymbol(Widget::Symbol::DOWN, [this] () { onDown(); });
     window->addSymbol(Widget::Symbol::UP, [this] () { onUp(); });
 
-    list->setDimensions(window->getContentWidth(), window->getContentHeight());
+//    list->setDimensions(window->getContentWidth(), window->getContentHeight());
     list->centerInParent();
     list->setCallback([this] (int data) {
         api().executeLater([this, data] {
