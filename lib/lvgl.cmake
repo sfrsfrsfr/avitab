@@ -21,6 +21,13 @@ list(APPEND lvgl_sources
 )
 
 list(APPEND lvgl_sources
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/extra/lv_extra.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/extra/layouts/flex/lv_flex.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/extra/layouts/grid/lv_grid.c
+)
+
+
+list(APPEND lvgl_sources
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/lv_draw_arc.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/lv_draw.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/lv_draw_img.c
@@ -34,6 +41,21 @@ list(APPEND lvgl_sources
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/lv_img_buf.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/lv_img_cache.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/lv_img_decoder.c
+)
+
+list(APPEND lvgl_sources
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_arc.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_blend.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_dither.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_gradient.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_img.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_layer.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_letter.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_line.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_polygon.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_rect.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/lv_draw_sw_transform.c
 )
 
 list(APPEND lvgl_sources
@@ -142,6 +164,7 @@ list(APPEND lvgl_sources
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/extra/widgets/span/lv_span.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/extra/widgets/spinbox/lv_spinbox.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/extra/widgets/spinner/lv_spinner.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/extra/widgets/tabview/lv_tabview.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/extra/widgets/tileview/lv_tileview.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/extra/widgets/win/lv_win.c
 )
