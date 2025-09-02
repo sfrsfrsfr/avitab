@@ -28,7 +28,7 @@ public:
     TextArea(WidgetPtr parent, const std::string &text);
     void setMultiLine(bool multiLine);
     void setText(const std::string &text);
-    void setShowCursor(bool show);
+//    void setShowCursor(bool show);
     std::string getText();
 };
 

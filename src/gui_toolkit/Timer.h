@@ -33,7 +33,7 @@ public:
     ~Timer();
 private:
     TimerFunc func;
-    lv_task_t *task;
+    lv_timer_t *task;
 };
 
 } /* namespace avitab */

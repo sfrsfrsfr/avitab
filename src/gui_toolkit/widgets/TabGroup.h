@@ -18,6 +18,8 @@
 #ifndef SRC_GUI_TOOLKIT_WIDGETS_TABGROUP_H_
 #define SRC_GUI_TOOLKIT_WIDGETS_TABGROUP_H_
 
+#include <string>
+#include <vector>
 #include "Widget.h"
 #include "Page.h"
 
@@ -30,7 +32,7 @@ public:
     void setCallback(TabChangeCallback cb);
     std::shared_ptr<Page> addTab(WidgetPtr tabs, const std::string &title);
     size_t getTabIndex(WidgetPtr tab);
-    void showTab(WidgetPtr tab);
+    // FIXME void showTab(WidgetPtr tab);
     void delTab(WidgetPtr tab);
     void setActiveTab(size_t i);
     size_t getActiveTab();
