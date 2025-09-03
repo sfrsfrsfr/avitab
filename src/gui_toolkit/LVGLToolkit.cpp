@@ -202,7 +202,7 @@ void LVGLToolkit::guiLoop() {
 
         try {
             // first run the actual GUI tasks, i.e. let LVGL do its animations etc.
-            lv_task_handler();
+            lv_timer_handler();
 
             // then run our own tasks
             // To prevent race-conditions since a task could
