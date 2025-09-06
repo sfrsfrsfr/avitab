@@ -214,7 +214,7 @@ void Widget::setClickHandler(ClickHandler handler) {
 
     lv_obj_add_event_cb(obj(), [] (lv_event_t *e) {
         lv_obj_t *o = lv_event_get_target(e);
-        lv_event_code_t ev = lv_event_get_code(e); 
+        lv_event_code_t ev = lv_event_get_code(e);
         Widget *us = reinterpret_cast<Widget *>(lv_obj_get_user_data(o));
         if (ev == LV_EVENT_PRESSED || ev == LV_EVENT_PRESSING || ev == LV_EVENT_RELEASED || ev == LV_EVENT_PRESS_LOST) {
             lv_point_t point;
