@@ -24,6 +24,7 @@ About::About(FuncsPtr appFuncs):
     window(std::make_shared<Window>(getUIContainer(), "About AviTab")),
     label(std::make_shared<Label>(window, ""))
 {
+    window->add(label);
     window->setOnClose([this] () { exit(); });
 
     std::string aboutText =
