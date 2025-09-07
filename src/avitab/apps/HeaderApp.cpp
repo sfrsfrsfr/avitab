@@ -134,7 +134,6 @@ void HeaderApp::updateClock() {
             t << platform::getLocalTime("%H:%M");
         }
         clockLabel->setText(t.str());
-        clockLabel->alignRightInParent(HOR_PADDING);
     }
     timerCount++;
 }
@@ -150,7 +149,6 @@ void HeaderApp::updateFPS() {
         float avgFps = getAverageFPS();
         if (avgFps > 0) {
             fpsLabel->setTextFormatted("%.0f FPS", avgFps);
-            fpsLabel->alignRightOf(settingsButton);
         }
     }
 }
