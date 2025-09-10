@@ -221,6 +221,7 @@ void RouteApp::showError(const std::string& msg) {
             errorMessage.reset();
         });
     });
+    errorMessage->centerInParent();
 }
 
 std::string RouteApp::toShortRouteDescription() {
