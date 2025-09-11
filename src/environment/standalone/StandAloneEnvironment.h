@@ -41,6 +41,7 @@ public:
     std::string getEarthTexturePath() override;
     std::string getFlightPlansPath() override;
     std::string getMETARForAirport(const std::string &icao) override;
+    int getWeatherAtLocation(const world::Location &loc, const float &altitude, std::shared_ptr<std::string>& weather) override;
     Environment::MagVarMap getMagneticVariations(std::vector<std::pair<double, double>> locations) override;
     AircraftID getActiveAircraftCount() override;
     Location getAircraftLocation(AircraftID id) override;

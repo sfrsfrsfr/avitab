@@ -100,7 +100,12 @@ Environment::MagVarMap StandAloneEnvironment::getMagneticVariations(std::vector<
 }
 
 std::string StandAloneEnvironment::getMETARForAirport(const std::string &icao) {
-    return "METAR";
+    return " ";
+}
+
+int StandAloneEnvironment::getWeatherAtLocation(const world::Location &loc, const float &altitude, std::shared_ptr<std::string>& weather) {
+    weather = std::make_shared<std::string>("Temp./Dew 14/8 °C; QNH 1013");
+    return 1;
 }
 
 AircraftID StandAloneEnvironment::getActiveAircraftCount() {
