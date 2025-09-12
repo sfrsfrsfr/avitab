@@ -384,9 +384,19 @@ int XPlaneEnvironment::getWeatherAtLocation(const world::Location &loc, const fl
         auto duration = std::chrono::steady_clock::now() - startAt;
         logger::verbose("Time to get Weather: %d millis",
             std::chrono::duration_cast<std::chrono::milliseconds>(duration).count());
-        str << " Wind " << (float)(winfo.wind_dir_alt) << "°T " << (float)(winfo.wind_spd_alt * world::MS_TO_KT) << "kt";
-        str << " Visibility " << (float)((winfo.visibility / 1000) * world::KM_TO_NM) << "nm";
-        str << " Temp./Dew " << (float)(winfo.temperature_alt) << "/" << (float)(winfo.dewpoint_alt) << "°C";
+        str << "Wind ";
+         if ((winfo.wind_spd_alt * world::MS_TO_KT) < 3) {
+            str << "calm,";
+        } else {
+            str << (float)(winfo.wind_dir_alt) << " °T " << (float)(winfo.wind_spd_alt * world::MS_TO_KT) << " kt,";
+        }
+        str << " Visibility ";
+        if ((winfo.visibility / 1000 * world::KM_TO_NM) > 10) {
+            str << "10+ nm,";
+        } else {
+            str << (float)((winfo.visibility / 1000) * world::KM_TO_NM) << " nm,";
+        }
+        str << " Temp./Dew " << (float)(winfo.temperature_alt) << "/" << (float)(winfo.dewpoint_alt) << " °C,";
         str << " QNH " << (float)(winfo.pressure_alt / 100);
     }
     weather = std::make_shared<std::string>(str.str());

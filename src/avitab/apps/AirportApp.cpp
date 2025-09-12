@@ -264,12 +264,12 @@ std::string AirportApp::toWeatherInfo(std::shared_ptr<world::Airport> airport) {
     std::string winfo;
 
     detailed = api().getWeatherAtLocation(airport->getLocation(), airport->getElevation() / world::M_TO_FT, metar);
-    winfo = "Weather ";
+    winfo = "Weather:\n";
     winfo.append(metar->data());
     if (detailed) {
         metar->assign(api().getMETARForAirport(airport->getID()));
         if (! metar->empty()) {
-            winfo = "METAR ";
+            winfo = "METAR:\n";
             winfo.append(metar->data());
         }
     }
