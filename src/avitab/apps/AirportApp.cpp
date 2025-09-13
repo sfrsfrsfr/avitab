@@ -152,7 +152,7 @@ void AirportApp::onAirportSelected(std::shared_ptr<world::Airport> airport) {
 
     pages.push_back(tab);
     fillPage(page, airport);
-    tabs->showTab(page);
+    // FIXME tabs->showTab(page);
 }
 
 void AirportApp::removeTab(std::shared_ptr<Page> page) {
@@ -360,7 +360,7 @@ void AirportApp::onChartsLoaded(std::shared_ptr<Page> page, const apis::ChartSer
 
             newTab.label = std::make_shared<Label>(newTab.window, "Loading...");
             pages.push_back(newTab);
-            tabs->showTab(newTab.page);
+            // FIXME tabs->showTab(newTab.page);
 
             auto svc = api().getChartService();
             auto call = svc->loadChart(chart);
