@@ -32,7 +32,7 @@ void PixMap::draw(const img::Image& img) {
 
 void PixMap::draw(const uint32_t* pix, int dataWidth, int dataHeight) {
     image = toLVImage(pix, dataWidth, dataHeight);
-    lv_image_cache_invalidate_src(&image);
+    lv_image_cache_drop(&image);
     lv_image_set_src(obj(), &image);
 }
 

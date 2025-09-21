@@ -286,7 +286,7 @@ const void* Widget::symbolToLVSymbol(Symbol symbol) {
     }
 
     if (res) {
-        lv_image_cache_invalidate_src(res);
+        lv_image_cache_drop(res);
     }
     return res;
 }
