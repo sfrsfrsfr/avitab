@@ -36,7 +36,7 @@ void TabGroup::setCallback(TabChangeCallback cb) {
     lv_obj_set_user_data(obj(), this);
 
     lv_obj_add_event_cb(obj(), [] (lv_event_t *e) {
-        lv_obj_t *o = lv_event_get_target(e);
+        lv_obj_t *o = lv_event_get_target_obj(e);
         TabGroup *me = reinterpret_cast<TabGroup *>(lv_obj_get_user_data(o));
         me->callbackFunc();
     }, LV_EVENT_VALUE_CHANGED, nullptr);

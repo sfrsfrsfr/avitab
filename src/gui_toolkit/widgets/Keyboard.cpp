@@ -30,7 +30,7 @@ Keyboard::Keyboard(WidgetPtr parent, std::shared_ptr<TextArea> target):
     lv_obj_set_user_data(keys, this);
 
     lv_obj_add_event_cb(keys, [] (lv_event_t *e) {
-        lv_obj_t *ref = lv_event_get_target(e);
+        lv_obj_t *ref = lv_event_get_target_obj(e);
         lv_event_code_t ev = lv_event_get_code(e); 
         Keyboard *us = reinterpret_cast<Keyboard *>(lv_obj_get_user_data(ref));
         if (ev == LV_EVENT_READY) {

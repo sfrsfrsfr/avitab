@@ -27,7 +27,7 @@ Screen::Screen():
     lv_obj_set_user_data(obj, this);
 
     lv_obj_add_event_cb(obj, [] (lv_event_t *e) {
-        lv_obj_t *o = lv_event_get_target(e);
+        lv_obj_t *o = lv_event_get_target_obj(e);
         Screen *us = (Screen *) lv_obj_get_user_data(o);
 
         if (us->onResize) {

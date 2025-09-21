@@ -42,7 +42,7 @@ void List::add(const std::string& entry, Symbol smb, int data) {
     lv_group_add_obj(grp, btn);
 
     lv_obj_add_event_cb(btn, [] (lv_event_t *e) {
-        lv_obj_t *o = lv_event_get_target(e);
+        lv_obj_t *o = lv_event_get_target_obj(e);
         lv_obj_t *listObj = lv_obj_get_parent(lv_obj_get_parent(o));
         void *list = lv_obj_get_user_data(listObj);
         if (list) {
