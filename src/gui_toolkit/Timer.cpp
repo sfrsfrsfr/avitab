@@ -36,7 +36,7 @@ Timer::Timer(TimerFunc callback, int periodMs):
 
 void Timer::stop() {
     if (task) {
-        lv_timer_del(task);
+        lv_timer_delete(task);
         task = nullptr;
     }
 }

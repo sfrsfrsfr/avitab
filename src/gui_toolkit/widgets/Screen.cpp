@@ -22,7 +22,7 @@ namespace avitab {
 Screen::Screen():
     Widget(nullptr)
 {
-    lv_obj_t *obj = lv_scr_act();
+    lv_obj_t *obj = lv_screen_active();
 
     lv_obj_set_user_data(obj, this);
 

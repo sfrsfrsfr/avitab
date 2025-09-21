@@ -66,8 +66,8 @@ private:
     std::atomic_bool guiActive;
     std::shared_ptr<Screen> mainScreen;
 
-    void initDisplayDriver();
-    void initInputDriver();
+    void initDisplay();
+    void initInputDevice();
     void guiLoop();
     void handleMouseWheel();
     void handleKeyboard();

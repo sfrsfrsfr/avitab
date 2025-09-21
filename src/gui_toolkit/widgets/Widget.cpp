@@ -185,11 +185,11 @@ void Widget::setBGTransparent () {
     lv_obj_set_style_bg_opa(obj(), LV_OPA_TRANSP, 0);
 }
 
-lv_img_dsc_t Widget::toLVImage(const uint32_t* pix, int width, int height) {
-    lv_img_dsc_t res;
+lv_image_dsc_t Widget::toLVImage(const uint32_t* pix, int width, int height) {
+    lv_image_dsc_t res;
 
-    res.header.always_zero = 0;
-    res.header.cf = LV_IMG_CF_TRUE_COLOR_ALPHA;
+    //res.header.always_zero = 0;
+    res.header.cf = LV_COLOR_FORMAT_RAW_ALPHA;
     res.header.w = width;
     res.header.h = height;
 
@@ -286,7 +286,7 @@ const void* Widget::symbolToLVSymbol(Symbol symbol) {
     }
 
     if (res) {
-        lv_img_cache_invalidate_src(res);
+        lv_image_cache_invalidate_src(res);
     }
     return res;
 }
@@ -302,7 +302,7 @@ void Widget::setManaged() {
 
 Widget::~Widget() {
     if (!managed) {
-        lv_obj_del(obj());
+        lv_obj_delete(obj());
     }
 }
 

@@ -30,7 +30,7 @@ Container::Container(WidgetPtr parent):
 Container::Container():
     Widget(nullptr)
 {
-    lv_obj_t *cont = lv_obj_create(lv_scr_act());
+    lv_obj_t *cont = lv_obj_create(lv_screen_active());
     lv_obj_clear_flag(cont, LV_OBJ_FLAG_SCROLLABLE);
     setObj(cont);
 }
@@ -46,7 +46,7 @@ void Container::setLayoutGrid() {
 }
 
 void Container::setGridArray(std::vector<lv_coord_t> cols, std::vector<lv_coord_t> rows) {
-    lv_coord_t col_dsc[cols.size() + 1];
+    lv_coord_t column_dsc[cols.size() + 1];
     lv_coord_t row_dsc[rows.size() + 1];
 
     std::transform(cols.begin(),cols.end(),col_dsc,[](const lv_coord_t& x){

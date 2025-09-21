@@ -73,12 +73,12 @@ size_t TabGroup::getTabIndex(WidgetPtr tab) {
 
 void TabGroup::setActiveTab(size_t i) {
     // FIXME
-    //lv_tabview_set_tab_act(obj(), i, true);
+    //lv_tabview_set_tab_active(obj(), i, true);
 }
 
 size_t TabGroup::getActiveTab() {
     // FIXME
-    //return lv_tabview_get_tab_act(obj());
+    //return lv_tabview_get_tab_active(obj());
     size_t a = 0;
     return a;
 }
@@ -105,7 +105,7 @@ void TabGroup::removeTab(size_t i) {
     lv_btnm_set_map(ext->btns, ext->tab_name_ptr);
 
     lv_obj_t *page = lv_tabview_get_tab(obj(), i);
-    lv_obj_del(page);
+    lv_obj_delete(page);
 */
 /*
     const lv_style_t * style_tabs = lv_obj_get_style(ext->btns);
