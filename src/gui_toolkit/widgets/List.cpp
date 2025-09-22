@@ -37,7 +37,7 @@ void List::add(const std::string& entry, int data) {
 }
 
 void List::add(const std::string& entry, Symbol smb, int data) {
-    lv_obj_t *btn = lv_list_add_btn(obj(), symbolToLVSymbol(smb), entry.c_str());
+    lv_obj_t *btn = lv_list_add_button(obj(), symbolToLVSymbol(smb), entry.c_str());
     lv_obj_set_user_data(btn, reinterpret_cast<void *>(data));
     lv_group_add_obj(grp, btn);
 

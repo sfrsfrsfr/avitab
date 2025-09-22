@@ -72,7 +72,7 @@ void Keyboard::hideEnterKey() {
         LV_SYMBOL_CLOSE, LV_SYMBOL_LEFT, " ", LV_SYMBOL_RIGHT, LV_SYMBOL_OK, ""
     };
     /*Set the relative width of the buttons and other controls*/
-    static const lv_btnmatrix_ctrl_t kb_ctrl[] = {
+    static const lv_buttonmatrix_ctrl_t kb_ctrl[] = {
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -88,7 +88,7 @@ void Keyboard::setNumericLayout() {
             "ABC", ",", " ", LV_SYMBOL_BACKSPACE, LV_SYMBOL_LEFT, LV_SYMBOL_RIGHT, LV_SYMBOL_OK, ""
     };
     /*Set the relative width of the buttons and other controls*/
-    static const lv_btnmatrix_ctrl_t kb_ctrl[] = {
+    static const lv_buttonmatrix_ctrl_t kb_ctrl[] = {
         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
         1, 1, 1, 1, 1, 1, 1, 1
     };

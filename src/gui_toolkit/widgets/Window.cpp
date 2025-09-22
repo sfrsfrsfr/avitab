@@ -78,7 +78,7 @@ std::shared_ptr<Button> Window::addSymbol(Symbol smb, WindowCallback cb) {
         throw std::runtime_error("Invalid symbol passed to window");
     }
     // FIXME button width 20
-    lv_obj_t *btn = lv_win_add_btn(obj(), lvSymbol, 20);
+    lv_obj_t *btn = lv_win_add_button(obj(), lvSymbol, 20);
     lv_obj_add_event_cb(btn, [] (lv_event_t *e) {
         lv_obj_t *btn = lv_event_get_target_obj(e);
         lv_obj_t *winObj = lv_obj_get_parent(lv_obj_get_parent(btn));
