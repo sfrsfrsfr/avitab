@@ -3,6 +3,10 @@ if(APPLE)
 endif()
 
 list(APPEND lvgl_sources
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/lv_init.c
+)
+
+list(APPEND lvgl_sources
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/core/lv_group.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/core/lv_obj.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/core/lv_obj_class.c
@@ -56,6 +60,18 @@ list(APPEND lvgl_sources
 )
 
 list(APPEND lvgl_sources
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_i1.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888_premultiplied.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565_swapped.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb888.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/blend/lv_draw_sw_blend.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_l8.c
+)
+
+list(APPEND lvgl_sources
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/font/lv_binfont_loader.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/font/lv_font.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/font/lv_font_dejavu_16_persian_hebrew.c
@@ -104,6 +120,10 @@ list(APPEND lvgl_sources
 )
 
 list(APPEND lvgl_sources
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/libs/bin_decoder/lv_bin_decoder.c
+)
+
+list(APPEND lvgl_sources
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/misc/lv_anim.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/misc/lv_anim_timeline.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/misc/lv_area.c
@@ -139,6 +159,35 @@ list(APPEND lvgl_sources
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/misc/cache/class/lv_cache_lru_rb.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/misc/cache/instance/lv_image_cache.c
     ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/misc/cache/instance/lv_image_header_cache.c
+)
+
+list(APPEND lvgl_sources
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/osal/lv_linux.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/osal/lv_mqx.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/osal/lv_os_none.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/osal/lv_pthread.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/osal/lv_freertos.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/osal/lv_sdl2.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/osal/lv_cmsis_rtos2.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/osal/lv_windows.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/osal/lv_os.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/osal/lv_rtthread.c
+)
+
+list(APPEND lvgl_sources
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/builtin/lv_sprintf_builtin.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/builtin/lv_mem_core_builtin.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/builtin/lv_string_builtin.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/builtin/lv_tlsf.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/clib/lv_sprintf_clib.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/clib/lv_string_clib.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/clib/lv_mem_core_clib.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/uefi/lv_mem_core_uefi.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/rtthread/lv_sprintf_rtthread.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/rtthread/lv_string_rtthread.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/rtthread/lv_mem_core_rtthread.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/micropython/lv_mem_core_micropython.c
+    ${CMAKE_CURRENT_LIST_DIR}/lvgl/src/stdlib/lv_mem.c
 )
 
 list(APPEND lvgl_sources
