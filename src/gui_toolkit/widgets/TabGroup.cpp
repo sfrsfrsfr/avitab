@@ -26,7 +26,8 @@ TabGroup::TabGroup(WidgetPtr parent):
     Widget(parent)
 {
     // FIXME tab_height/tab_width
-    lv_obj_t *tabs = lv_tabview_create(parentObj(), LV_DIR_TOP, 15);
+    //lv_obj_t *tabs = lv_tabview_create(parentObj(), LV_DIR_TOP, 15);
+    lv_obj_t *tabs = lv_tabview_create(parentObj());
 
     setObj(tabs);
 }

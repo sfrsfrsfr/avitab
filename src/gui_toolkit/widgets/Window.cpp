@@ -23,8 +23,9 @@ namespace avitab {
 Window::Window(WidgetPtr parent, const std::string& title, const int height):
     Widget(parent)
 {
-    lv_obj_t *win = lv_win_create(parentObj(), height);
+    lv_obj_t *win = lv_win_create(parentObj());
     caption = lv_win_add_title(win, title.c_str());
+    lv_obj_set_height(win, height);
     lv_obj_set_user_data(win, this);
 
     setObj(win);
@@ -49,7 +50,8 @@ void Window::hideScrollbars() {
 
 void Window::getHeaderArea(int &x1, int &y1, int &x2, int &y2) {
     auto header = lv_win_get_header(obj());
-    auto area = header->coords;
+    lv_area_t area;
+    lv_obj_get_coords(header, &area);
     x1 = area.x1;
     y1 = area.y1;
     x2 = area.x2;
