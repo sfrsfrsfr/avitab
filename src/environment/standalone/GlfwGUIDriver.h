@@ -30,6 +30,7 @@ class GlfwGUIDriver: public GUIDriver {
 public:
     void init(int width, int height) override;
     void createWindow(const std::string &title, const WindowRect &rect) override;
+    void togglePortraitMode() override;
     bool hasWindow() override;
     void killWindow() override;
     void setBrightness(float b) override;

@@ -46,6 +46,7 @@ public:
     void setResizeCallback(ResizeCallback cb);
 
     virtual void createWindow(const std::string &title, const WindowRect &rect) = 0;
+    virtual void togglePortraitMode();
     virtual bool hasWindow() = 0;
     virtual void killWindow() = 0;
     virtual WindowRect getWindowRect();
@@ -69,10 +70,13 @@ public:
 protected:
     uint32_t *data();
     bool wantsKeyInput();
+    bool inPortraitMode();
     void pushKeyInput(uint32_t c);
     int width();
     int height();
     void resize(int newWidth, int newHeight);
+
+    bool isPortraitMode = false;
 private:
     ResizeCallback onResize;
     std::mutex keyMutex;

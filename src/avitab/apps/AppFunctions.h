@@ -43,6 +43,7 @@ public:
     virtual void setBrightness(float brightness) = 0;
     virtual float getBrightness() = 0;
     virtual void executeLater(std::function<void()> func) = 0;
+    virtual void togglePortraitMode() = 0;
     virtual std::string getDataPath() = 0;
     virtual std::string getEarthTexturePath() = 0;
     virtual std::string getAirplanePath() = 0;

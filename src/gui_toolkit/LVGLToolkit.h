@@ -40,6 +40,7 @@ public:
     void createNativeWindow(const std::string &title, const WindowRect &rect);
     void createPanel(int left, int bottom, int width, int height, bool captureClicks);
     void hidePanel();
+    void togglePortraitMode();
     void pauseNativeWindow();
     bool hasNativeWindow();
     WindowRect getNativeWindowRect();

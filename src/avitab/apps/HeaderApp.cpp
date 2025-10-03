@@ -98,6 +98,10 @@ void HeaderApp::createSettingsContainer() {
     closeButton = std::make_shared<Button>(prefContainer, "Close AviTab");
     closeButton->setCallback([this] (const Button &) { toggleSettings(); api().close(); });
     closeButton->alignBelow(mediaLabel, VERT_PADDING);
+
+    portraitButton = std::make_shared<Button>(prefContainer, "Portrait m");
+    portraitButton->setCallback([this] (const Button &) { api().togglePortraitMode(); });
+    portraitButton->alignRightOf(closeButton, VERT_PADDING);
 }
 
 void HeaderApp::toggleSettings() {

@@ -160,6 +160,16 @@ void GlfwGUIDriver::blit(int32_t x1, int32_t y1, int32_t x2, int32_t y2, const u
     needsRedraw = true;
 }
 
+void GlfwGUIDriver::togglePortraitMode() {
+    int winWidth, winHeight;
+
+    glfwGetWindowSize(window, &winWidth, &winHeight);
+    glfwSetWindowSize(window, winHeight, winWidth);
+    resize(height(), width());
+
+    isPortraitMode = !isPortraitMode;
+}
+
 void GlfwGUIDriver::render() {
     auto startAt = std::chrono::steady_clock::now();
 

@@ -157,6 +157,10 @@ void LVGLToolkit::createPanel(int left, int bottom, int width, int height, bool 
     driver->createPanel(left, bottom, width, height, captureClicks);
 }
 
+void LVGLToolkit::togglePortraitMode() {
+        driver->togglePortraitMode();
+}
+
 void LVGLToolkit::hidePanel() {
     driver->hidePanel();
 }

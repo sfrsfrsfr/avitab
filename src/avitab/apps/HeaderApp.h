@@ -44,6 +44,7 @@ private:
     std::shared_ptr<Button> pauseButton, nextButton, prevButton;
     std::shared_ptr<Label> brightLabel, mediaLabel;
     std::shared_ptr<Button> closeButton;
+    std::shared_ptr<Button> portraitButton;
 
     std::shared_ptr<avitab::Settings> savedSettings;
 

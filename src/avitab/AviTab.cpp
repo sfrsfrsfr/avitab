@@ -104,6 +104,13 @@ void AviTab::toggleTablet() {
     }
 }
 
+void AviTab::togglePortraitMode() {
+    env->runInEnvironment([this] () {
+        guiLib->togglePortraitMode();
+        logger::verbose("PortraitMode toggled");
+    });
+}
+
 void AviTab::resetWindowPosition() {
     // runs in environment thread
     env->getSettings()->saveWindowRect({});
