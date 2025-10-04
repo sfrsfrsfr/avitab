@@ -162,7 +162,10 @@ void GlfwGUIDriver::blit(int32_t x1, int32_t y1, int32_t x2, int32_t y2, const u
 
 void GlfwGUIDriver::togglePortraitMode() {
     int winWidth, winHeight;
-
+    
+    if (!hasWindow()) {
+        return;
+    }
     glfwGetWindowSize(window, &winWidth, &winHeight);
     glfwSetWindowSize(window, winHeight, winWidth);
     resize(height(), width());

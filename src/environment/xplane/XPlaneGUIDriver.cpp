@@ -188,7 +188,8 @@ WindowRect XPlaneGUIDriver::getWindowRect() {
 
 void XPlaneGUIDriver::togglePortraitMode() {
     int width, height, newright;
-    if (hasPanel) {
+
+    if (!hasWindow() || hasPanel) {
         return;
     }
     WindowRect rect;
