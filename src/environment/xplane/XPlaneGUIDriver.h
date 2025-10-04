@@ -37,6 +37,7 @@ public:
 
     void init(int width, int height) override;
     void createWindow(const std::string &title, const WindowRect &rect) override;
+    void togglePortraitMode() override; 
     WindowRect getWindowRect() override;
     bool hasWindow() override;
     void killWindow() override;

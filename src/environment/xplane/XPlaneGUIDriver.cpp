@@ -186,6 +186,35 @@ WindowRect XPlaneGUIDriver::getWindowRect() {
     return rect;
 }
 
+void XPlaneGUIDriver::togglePortraitMode() {
+    int width, height, newright;
+    if (hasPanel) {
+        return;
+    }
+    WindowRect rect;
+    if (XPLMWindowIsPoppedOut(window)) {
+        XPLMGetWindowGeometryOS(window, &rect.left, &rect.top, &rect.right, &rect.bottom);
+        rect.poppedOut = true;
+    } else {
+        XPLMGetWindowGeometry(window, &rect.left, &rect.top, &rect.right, &rect.bottom);
+        rect.poppedOut = false;
+    }
+    logger::verbose("XP window is: l %d, t %d, r %d, b %d", rect.left, rect.top, rect.right, rect.bottom);
+    width = rect.right - rect.left;
+    height = rect.top - rect.bottom;
+    newright = rect.left + height;
+    rect.bottom = rect.top - width;
+    rect.right = newright;
+    if (XPLMWindowIsPoppedOut(window)) {
+        XPLMSetWindowGeometryOS(window, rect.left, rect.top, rect.right, rect.bottom);
+    } else {
+        XPLMSetWindowGeometry(window, rect.left, rect.top, rect.right, rect.bottom);
+    }
+    logger::verbose("XP new window is: l %d, t %d, r %d, b %d", rect.left, rect.top, rect.right, rect.bottom);
+    //resize(height(), width());
+    isPortraitMode = !isPortraitMode;
+}
+
 void XPlaneGUIDriver::setPanelEnabledPtr(std::shared_ptr<int> panelEnabledPtr) {
     panelEnabled = panelEnabledPtr;
 }
