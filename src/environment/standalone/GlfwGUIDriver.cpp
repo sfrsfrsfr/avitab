@@ -167,7 +167,7 @@ void GlfwGUIDriver::togglePortraitMode() {
     glfwSetWindowSize(window, winHeight, winWidth);
     resize(height(), width());
 
-    isPortraitMode = !isPortraitMode;
+    windowIsUpright = !windowIsUpright;
 }
 
 void GlfwGUIDriver::render() {

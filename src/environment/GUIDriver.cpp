@@ -84,8 +84,8 @@ uint32_t* GUIDriver::data() {
     return buffer.data();
 }
 
-bool GUIDriver::inPortraitMode() {
-    return isPortraitMode;
+bool GUIDriver::isPortraitMode() {
+    return windowIsUpright;
 }
 
 void GUIDriver::setWantKeyInput(bool wantKeys) {

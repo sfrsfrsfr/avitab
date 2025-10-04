@@ -212,7 +212,7 @@ void XPlaneGUIDriver::togglePortraitMode() {
     }
     logger::verbose("XP new window is: l %d, t %d, r %d, b %d", rect.left, rect.top, rect.right, rect.bottom);
     //resize(height(), width());
-    isPortraitMode = !isPortraitMode;
+    windowIsUpright = !windowIsUpright;
 }
 
 void XPlaneGUIDriver::setPanelEnabledPtr(std::shared_ptr<int> panelEnabledPtr) {

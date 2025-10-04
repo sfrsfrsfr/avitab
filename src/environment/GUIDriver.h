@@ -70,13 +70,13 @@ public:
 protected:
     uint32_t *data();
     bool wantsKeyInput();
-    bool inPortraitMode();
+    bool isPortraitMode();
     void pushKeyInput(uint32_t c);
     int width();
     int height();
     void resize(int newWidth, int newHeight);
 
-    bool isPortraitMode = false;
+    bool windowIsUpright = false;
 private:
     ResizeCallback onResize;
     std::mutex keyMutex;
