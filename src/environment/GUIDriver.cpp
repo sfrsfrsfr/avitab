@@ -28,6 +28,9 @@ void GUIDriver::init(int width, int height) {
     bufferWidth = width;
     bufferHeight = height;
     buffer.resize(width * height);
+    if (bufferWidth < bufferHeight) {
+        windowIsUpright = true;
+    }
 }
 
 WindowRect GUIDriver::getWindowRect() {
@@ -44,6 +47,11 @@ void GUIDriver::resize(int newWidth, int newHeight) {
     buffer.resize(bufferWidth * bufferHeight);
     if (onResize) {
         onResize(newWidth, newHeight);
+    }
+    if (bufferWidth < bufferHeight) {
+        windowIsUpright = true;
+    } else {
+        windowIsUpright = false;
     }
 }
 
