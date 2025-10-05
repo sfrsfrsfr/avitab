@@ -187,12 +187,12 @@ WindowRect XPlaneGUIDriver::getWindowRect() {
 }
 
 void XPlaneGUIDriver::togglePortraitMode() {
-    int width, height, newright;
+    int curWidth, curHeight;
+    WindowRect rect;
 
     if (!hasWindow() || hasPanel) {
         return;
     }
-    WindowRect rect;
     if (XPLMWindowIsPoppedOut(window)) {
         XPLMGetWindowGeometryOS(window, &rect.left, &rect.top, &rect.right, &rect.bottom);
         rect.poppedOut = true;
@@ -201,11 +201,12 @@ void XPlaneGUIDriver::togglePortraitMode() {
         rect.poppedOut = false;
     }
     logger::verbose("XP window is: l %d, t %d, r %d, b %d", rect.left, rect.top, rect.right, rect.bottom);
-    width = rect.right - rect.left;
-    height = rect.top - rect.bottom;
-    newright = rect.left + height;
-    rect.bottom = rect.top - width;
-    rect.right = newright;
+    curWidth = rect.right - rect.left;
+    curHeight = rect.top - rect.bottom;
+    rect.right = rect.left + curHeight;
+    rect.bottom = rect.top - curWidth;
+    rect.valid = true;
+
     if (XPLMWindowIsPoppedOut(window)) {
         XPLMSetWindowGeometryOS(window, rect.left, rect.top, rect.right, rect.bottom);
     } else {
