@@ -213,6 +213,7 @@ void XPlaneGUIDriver::togglePortraitMode() {
     }
     logger::verbose("XP new window is: l %d, t %d, r %d, b %d", rect.left, rect.top, rect.right, rect.bottom);
     //resize(height(), width());
+    newOrientation = true;
 }
 
 void XPlaneGUIDriver::setPanelEnabledPtr(std::shared_ptr<int> panelEnabledPtr) {
@@ -393,6 +394,14 @@ void XPlaneGUIDriver::onDrawPanel() {
 
 void XPlaneGUIDriver::redrawTexture() {
     std::lock_guard<std::mutex> lock(drawMutex);
+    if (newOrientation) {
+        logger::verbose("glTexImage2D newOrientation: w %d; h %d", width(), height());
+        glTexImage2D(GL_TEXTURE_2D, 0,
+                0, 0,
+               width(), height(),
+                GL_BGRA, GL_UNSIGNED_BYTE, data());
+        newOrientation = false;
+    }
     if (needsRedraw) {
         glTexSubImage2D(GL_TEXTURE_2D, 0,
                 0, 0,

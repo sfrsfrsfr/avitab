@@ -73,6 +73,7 @@ private:
     std::atomic_int mouseWheel {0};
     std::mutex drawMutex;
     bool needsRedraw = false;
+    bool newOrientation = false;
     std::unique_ptr<DataRefExport<int>> panelLeftRef, panelBottomRef, panelWidthRef, panelHeightRef;
     int panelLeft = 0, panelBottom = 0, panelWidth = 0, panelHeight = 0;
     std::vector<int> vrTriggerIndices;
