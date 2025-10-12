@@ -399,8 +399,7 @@ void XPlaneGUIDriver::redrawTexture() {
         if (newOrientation) {
             logger::verbose("glTexImage2D newOrientation: w %d; h %d", width(), height());
             glTexImage2D(GL_TEXTURE_2D, 0,
-                    0, 0,
-                width(), height(),
+                    GL_RGBA, this->width(), this->height(), 0,
                     GL_BGRA, GL_UNSIGNED_BYTE, data());
             newOrientation = false;
             needsRedraw = false;
