@@ -200,7 +200,6 @@ void XPlaneGUIDriver::togglePortraitMode() {
         XPLMGetWindowGeometry(window, &rect.left, &rect.top, &rect.right, &rect.bottom);
         rect.poppedOut = false;
     }
-    logger::verbose("XP window is: l %d, t %d, r %d, b %d", rect.left, rect.top, rect.right, rect.bottom);
     curWidth = rect.right - rect.left;
     curHeight = rect.top - rect.bottom;
     rect.right = rect.left + curHeight;
@@ -212,9 +211,13 @@ void XPlaneGUIDriver::togglePortraitMode() {
     } else {
         XPLMSetWindowGeometry(window, rect.left, rect.top, rect.right, rect.bottom);
     }
-    logger::verbose("XP new window is: l %d, t %d, r %d, b %d", rect.left, rect.top, rect.right, rect.bottom);
-    newOrientation = true;
     resize(height(), width());
+    {
+    std::lock_guard<std::mutex> lock(drawMutex);
+    glTexImage2D(GL_TEXTURE_2D, 0,
+            GL_RGBA, this->width(), this->height(), 0,
+            GL_BGRA, GL_UNSIGNED_BYTE, data());
+    }
 }
 
 void XPlaneGUIDriver::setPanelEnabledPtr(std::shared_ptr<int> panelEnabledPtr) {
@@ -396,15 +399,6 @@ void XPlaneGUIDriver::onDrawPanel() {
 void XPlaneGUIDriver::redrawTexture() {
     std::lock_guard<std::mutex> lock(drawMutex);
     if (needsRedraw) {
-        if (newOrientation) {
-            logger::verbose("glTexImage2D newOrientation: w %d; h %d", width(), height());
-            glTexImage2D(GL_TEXTURE_2D, 0,
-                    GL_RGBA, this->width(), this->height(), 0,
-                    GL_BGRA, GL_UNSIGNED_BYTE, data());
-            newOrientation = false;
-            needsRedraw = false;
-            return;
-        }
         glTexSubImage2D(GL_TEXTURE_2D, 0,
                 0, 0,
                 width(), height(),
