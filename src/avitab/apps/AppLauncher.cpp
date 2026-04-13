@@ -34,7 +34,7 @@ AppLauncher::AppLauncher(FuncsPtr appFuncs):
 {
     auto cont = getUIContainer();
     // FIXME
-    //cont->setLayoutGrid();
+    cont->setLayoutFlex();
     std::string root = api().getDataPath() + "icons/";
 
     addEntry<ChartsApp>("Charts", root + "folder.png", AppId::CHARTS);
